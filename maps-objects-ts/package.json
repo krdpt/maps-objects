@@ -1,5 +1,5 @@
 {
-  "name": "maps-objects-ts",
+  "name": "@krdpt/maps-objects-ts",
   "version": "1.0.0",
   "description": "Object interfaces for maps",
   "main": "src/index.ts",
@@ -13,6 +13,13 @@
   ],
   "author": "Volan4ik",
   "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krdpt/maps-objects/"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/krdpt"
+  },
   "devDependencies": {
     "typescript": "^5.3.3"
   }
