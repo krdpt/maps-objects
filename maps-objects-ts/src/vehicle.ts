@@ -1,11 +1,11 @@
 export class Vehicle {
     public readonly id: string
-    public readonly registration_number: string | null
-
-    public readonly model: string | null
     public readonly type: VehicleType
+
+    public readonly registration_number: string | null
+    public readonly model: string | null
     public readonly route: string | null
-    public readonly route_id: number | null
+    public readonly route_id: string | null
 
     public readonly lat: number
     public readonly lng: number
