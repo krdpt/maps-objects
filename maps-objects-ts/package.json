@@ -17,9 +17,6 @@
     "type": "git",
     "url": "https://github.com/krdpt/maps-objects/"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/krdpt"
-  },
   "devDependencies": {
     "typescript": "^5.3.3"
   }
