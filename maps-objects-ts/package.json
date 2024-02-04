@@ -1,0 +1,19 @@
+{
+  "name": "maps-objects-ts",
+  "version": "1.0.0",
+  "description": "Object interfaces for maps",
+  "main": "src/index.ts",
+  "scripts": {
+    "run": "npx tsc && node dist/index.js"
+  },
+  "keywords": [
+    "transport",
+    "vehicles",
+    "stops"
+  ],
+  "author": "Volan4ik",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
