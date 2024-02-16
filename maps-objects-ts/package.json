@@ -1,6 +1,6 @@
 {
   "name": "@krdpt/maps-objects-ts",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Object interfaces for maps",
   "main": "src/index.ts",
   "scripts": {
@@ -18,6 +18,8 @@
     "url": "https://github.com/krdpt/maps-objects/"
   },
   "devDependencies": {
-    "typescript": "^5.3.3"
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack-cli": "^5.1.4"
   }
 }
