@@ -1,4 +1,4 @@
-import {VehicleType} from "./vehicle";
+import {VehicleType} from "./vehicle.js";
 
 export class Stop {
     public readonly id: string;

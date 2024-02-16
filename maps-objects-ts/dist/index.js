@@ -1,75 +1,46 @@
 "use strict";
-function _class_call_check(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-        throw new TypeError("Cannot call a class as a function");
-    }
-}
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __export = function(target, all) {
-    for(var name in all)__defProp(target, name, {
-        get: all[name],
-        enumerable: true
-    });
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
 };
-var __copyProps = function(to, from, except, desc) {
-    if (from && typeof from === "object" || typeof from === "function") {
-        var _iteratorNormalCompletion = true, _didIteratorError = false, _iteratorError = undefined;
-        try {
-            var _loop = function() {
-                var key = _step.value;
-                if (!__hasOwnProp.call(to, key) && key !== except) __defProp(to, key, {
-                    get: function() {
-                        return from[key];
-                    },
-                    enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
-                });
-            };
-            for(var _iterator = __getOwnPropNames(from)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true)_loop();
-        } catch (err) {
-            _didIteratorError = true;
-            _iteratorError = err;
-        } finally{
-            try {
-                if (!_iteratorNormalCompletion && _iterator.return != null) {
-                    _iterator.return();
-                }
-            } finally{
-                if (_didIteratorError) {
-                    throw _iteratorError;
-                }
-            }
-        }
-    }
-    return to;
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
 };
-var __toCommonJS = function(mod) {
-    return __copyProps(__defProp({}, "__esModule", {
-        value: true
-    }), mod);
-};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+
 // src/index.ts
 var src_exports = {};
 __export(src_exports, {
-    Stop: function() {
-        return Stop;
-    },
-    Vehicle: function() {
-        return Vehicle;
-    },
-    VehicleInfo: function() {
-        return VehicleInfo;
-    },
-    VehicleType: function() {
-        return VehicleType;
-    }
+  Stop: () => Stop,
+  Vehicle: () => Vehicle,
+  VehicleInfo: () => VehicleInfo,
+  VehicleType: () => VehicleType
 });
 module.exports = __toCommonJS(src_exports);
+
 // src/stop.ts
-var Stop = function Stop(data) {
-    _class_call_check(this, Stop);
+var Stop = class {
+  id;
+  index;
+  name;
+  description;
+  lat;
+  lon;
+  routes;
+  transport;
+  kttu;
+  trolley;
+  tram;
+  constructor(data) {
     this.id = data["id"];
     this.index = data["index"];
     this.name = data["name"];
@@ -81,10 +52,25 @@ var Stop = function Stop(data) {
     this.kttu = data["kttu"];
     this.trolley = data["trolley"];
     this.tram = data["tram"];
+  }
 };
+
 // src/vehicle.ts
-var Vehicle = function Vehicle(data) {
-    _class_call_check(this, Vehicle);
+var Vehicle = class {
+  id;
+  type;
+  registration_number;
+  model;
+  route;
+  route_id;
+  lat;
+  lng;
+  speed;
+  arrow;
+  kttu;
+  long;
+  routeless;
+  constructor(data) {
     this.id = data["id"];
     this.registration_number = data["registration_number"];
     this.model = data["model"];
@@ -98,9 +84,23 @@ var Vehicle = function Vehicle(data) {
     this.kttu = data["kttu"];
     this.long = data["long"];
     this.routeless = data["routeless"];
+  }
 };
-var VehicleInfo = function VehicleInfo(data) {
-    _class_call_check(this, VehicleInfo);
+var VehicleInfo = class {
+  num;
+  model;
+  years;
+  factory_id;
+  built_in;
+  exploitation_since;
+  depot;
+  registration_number;
+  comment;
+  more_url;
+  image_url;
+  small_image_url;
+  tags;
+  constructor(data) {
     this.num = data["num"];
     this.model = data["model"];
     this.years = data["years"];
@@ -114,20 +114,21 @@ var VehicleInfo = function VehicleInfo(data) {
     this.image_url = data["image_url"];
     this.small_image_url = data["small_image_url"];
     this.tags = data["tags"];
+  }
 };
-var VehicleType = /* @__PURE__ */ function(VehicleType2) {
-    VehicleType2["TROLLEY"] = "trolley";
-    VehicleType2["BUS"] = "bus";
-    VehicleType2["EBUS"] = "ebus";
-    VehicleType2["TRAM"] = "tram";
-    VehicleType2["SERVICE"] = "service";
-    VehicleType2["COMMERCIAL"] = "commercial";
-    return VehicleType2;
-}(VehicleType || {});
+var VehicleType = /* @__PURE__ */ ((VehicleType2) => {
+  VehicleType2["TROLLEY"] = "trolley";
+  VehicleType2["BUS"] = "bus";
+  VehicleType2["EBUS"] = "ebus";
+  VehicleType2["TRAM"] = "tram";
+  VehicleType2["SERVICE"] = "service";
+  VehicleType2["COMMERCIAL"] = "commercial";
+  return VehicleType2;
+})(VehicleType || {});
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-    Stop: Stop,
-    Vehicle: Vehicle,
-    VehicleInfo: VehicleInfo,
-    VehicleType: VehicleType
+  Stop,
+  Vehicle,
+  VehicleInfo,
+  VehicleType
 });
