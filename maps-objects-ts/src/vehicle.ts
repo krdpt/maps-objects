@@ -69,6 +69,7 @@ export class VehicleInfo {
 export enum VehicleType {
     TROLLEY = "trolley",
     BUS = "bus",
+    EBUS = "ebus",
     TRAM = "tram",
     SERVICE = "service",
     COMMERCIAL = "commercial"

@@ -2,9 +2,13 @@ package ru.krdpt
 
 import org.json.JSONObject
 
+enum class VehicleType {
+    TROLLEY, BUS, EBUS, TRAM, SERVICE, COMMERCIAL
+}
+
 class Vehicle {
     val id: String
-    val type: String
+    val type: VehicleType
 
     val registration_number: String?
     val model: String?
@@ -23,7 +27,7 @@ class Vehicle {
 
     constructor(data: JSONObject) {
         this.id = data.getString("id")
-        this.type = data.getString("type")
+        this.type = VehicleType.valueOf(data.getString("type").uppercase())
 
         this.registration_number = if (data.has("registration_number"))
             data.getString("registration_number") else null
