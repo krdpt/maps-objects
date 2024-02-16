@@ -1,6 +1,6 @@
 {
   "name": "@krdpt/maps-objects-ts",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Object interfaces for maps",
   "main": "src/index.ts",
   "scripts": {
