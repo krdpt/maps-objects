@@ -1,5 +1,18 @@
-export class Stop {
-    constructor(data: {
+declare module "@krdpt/maps-objects-ts" {
+    export class Stop {
+        constructor(data: {
+            id: string;
+            index: number;
+            name: string;
+            description: string;
+            lat: number;
+            lon: number;
+            routes: any[];
+            transport: VehicleType;
+            kttu: any;
+            trolley: any;
+            tram: any;
+        });
         id: string;
         index: number;
         name: string;
@@ -7,30 +20,32 @@ export class Stop {
         lat: number;
         lon: number;
         routes: any[];
-        transport: any;
+        transport: VehicleType;
         kttu: any;
         trolley: any;
         tram: any;
-    });
-    id: string;
-    index: number;
-    name: string;
-    description: string;
-    lat: number;
-    lon: number;
-    routes: any[];
-    transport: any;
-    kttu: any;
-    trolley: any;
-    tram: any;
-}
+    }
 
-export class Vehicle {
-    constructor(data: {
+    export class Vehicle {
+        constructor(data: {
+            id: string;
+            registration_number: string;
+            model: string;
+            type: VehicleType;
+            route: any;
+            route_id: any;
+            lat: number;
+            lng: number;
+            speed: number;
+            arrow: any;
+            kttu: any;
+            long: any;
+            routeless: any;
+        });
         id: string;
         registration_number: string;
         model: string;
-        type: string;
+        type: VehicleType;
         route: any;
         route_id: any;
         lat: number;
@@ -40,24 +55,24 @@ export class Vehicle {
         kttu: any;
         long: any;
         routeless: any;
-    });
-    id: string;
-    registration_number: string;
-    model: string;
-    type: string;
-    route: any;
-    route_id: any;
-    lat: number;
-    lng: number;
-    speed: number;
-    arrow: any;
-    kttu: any;
-    long: any;
-    routeless: any;
-}
+    }
 
-export class VehicleInfo {
-    constructor(data: {
+    export class VehicleInfo {
+        constructor(data: {
+            num: any;
+            model: string;
+            years: any;
+            factory_id: any;
+            built_in: any;
+            exploitation_since: any;
+            depot: any;
+            registration_number: string;
+            comment: any;
+            more_url: any;
+            image_url: any;
+            small_image_url: any;
+            tags: any;
+        });
         num: any;
         model: string;
         years: any;
@@ -71,27 +86,15 @@ export class VehicleInfo {
         image_url: any;
         small_image_url: any;
         tags: any;
-    });
-    num: any;
-    model: string;
-    years: any;
-    factory_id: any;
-    built_in: any;
-    exploitation_since: any;
-    depot: any;
-    registration_number: string;
-    comment: any;
-    more_url: any;
-    image_url: any;
-    small_image_url: any;
-    tags: any;
-}
+    }
 
-export enum VehicleType {
-    TROLLEY = "trolley",
-    BUS = "bus",
-    EBUS = "ebus",
-    TRAM = "tram",
-    SERVICE = "service",
-    COMMERCIAL = "commercial",
+    export enum VehicleType {
+        TROLLEY = "trolley",
+        BUS = "bus",
+        EBUS = "ebus",
+        TRAM = "tram",
+        SERVICE = "service",
+        COMMERCIAL = "commercial",
+    }
+
 }
