@@ -1,36 +1,11 @@
 {
   "name": "@krdpt/maps-objects-ts",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Object interfaces for maps",
-
+  "main": "src/index.ts",
   "scripts": {
-    "run": "npx tsc && node dist/index.js",
-    "build": "npx tsc --noEmit && tsup ./src/index.ts"
+    "run": "npx tsc && node dist/index.js"
   },
-
-  "main": "./src/index.ts",
-  "module": "./src/index.mts",
-  "types": "./src/index.d.ts",
-
-  "exports": {
-    ".": {
-      "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      }
-    }
-  },
-  "directories": {
-    "lib": "src"
-  },
-  "files": [
-    "dist"
-  ],
-
   "keywords": [
     "transport",
     "vehicles",
@@ -43,10 +18,6 @@
     "url": "https://github.com/krdpt/maps-objects/"
   },
   "devDependencies": {
-    "@swc/core": "^1.4.1",
-    "ts-loader": "^9.5.1",
-    "tsup": "^8.0.2",
-    "typescript": "^5.3.3",
-    "webpack-cli": "^5.1.4"
+    "typescript": "^5.3.3"
   }
 }
