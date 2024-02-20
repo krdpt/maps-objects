@@ -1,0 +1,5 @@
+jdk:
+  - openjdk21
+install:
+  - echo "Running a custom install command"
+  - ./maps-objects-kotlin/gradlew clean install
