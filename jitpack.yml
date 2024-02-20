@@ -4,4 +4,4 @@ install:
   - echo "Running a custom install command"
   - cd ./maps-objects-kotlin
   - chmod +x ./gradlew
-  - ./gradlew clean build
+  - ./gradlew clean build publishToMavenLocal
