@@ -2,5 +2,6 @@ jdk:
   - openjdk21
 install:
   - echo "Running a custom install command"
-  - chmod +x ./maps-objects-kotlin/gradlew
-  - ./maps-objects-kotlin/gradlew clean install
+  - cd ./maps-objects-kotlin
+  - chmod +x ./gradlew
+  - ./gradlew clean install
