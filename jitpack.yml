@@ -1,5 +1,5 @@
 jdk:
-  - openjdk21
+  - openjdk20
 install:
   - echo "Running a custom install command"
   - cd ./maps-objects-kotlin
