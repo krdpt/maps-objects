@@ -16,14 +16,23 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                groupId = "com.github.VolanDeMor1"
-                artifactId = "maps-objects-kotlin"
-                version = project.version as String
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/krdpt/maps-objects")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
             }
+        }
+    }
+    publications {
+        register<MavenPublication>("gpr") {
+            groupId = project.group.toString()
+            version = project.version.toString()
+
+            from(components["kotlin"])
         }
     }
 }
