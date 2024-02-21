@@ -37,13 +37,16 @@ class Vehicle {
 
         this.lat = data.getFloat("lat")
         this.lng = data.getFloat("lng")
-        this.speed = if (data.has("speed")) data.getDouble("speed") else null
+        this.speed = if (data.has("speed") && !data.isNull("speed"))
+            data.getDouble("speed") else null
         this.arrow = if (data.has("arrow")) data.getDouble("arrow") else null
 
         this.kttu = data.getBoolean("kttu")
         this.long = data.getBoolean("long")
         this.routeless = data.getBoolean("routeless")
     }
+
+    constructor(json: String): this(JSONObject(json))
 
     override fun toString(): String {
         return "Vehicle(id='$id', type='$type', registration_number=$registration_number, model=$model, route=$route, route_id=$route_id, lat=$lat, lng=$lng, speed=$speed, arrow=$arrow, kttu=$kttu, long=$long, routeless=$routeless)"
