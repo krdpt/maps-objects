@@ -12,7 +12,7 @@ class Stop {
     val lat: Float
     val lon: Float
 
-    val routes: List<String>
+    val routes: List<String>?
     val transport: VehicleType
 
     val kttu: String?
@@ -26,7 +26,7 @@ class Stop {
         description: String,
         lat: Float,
         lon: Float,
-        routes: List<String>,
+        routes: List<String>?,
         transport: VehicleType,
         kttu: String?,
         trolley: String?,
@@ -56,7 +56,7 @@ class Stop {
         this.transport = VehicleType.valueOf(data.getString("transport").uppercase())
         this.trolley = if (data.has("trolley")) data.getString("trolley") else null
         this.tram = if (data.has("tram")) data.getString("tram") else null
-        this.routes = data.getJSONArray("routes").toList() as List<String>
+        this.routes = if (data.has("routes")) data.getJSONArray("routes").toList() as List<String> else null
     }
 
     constructor(json: String): this(JSONObject(json))
