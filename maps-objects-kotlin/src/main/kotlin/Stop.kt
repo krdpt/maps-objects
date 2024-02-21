@@ -9,8 +9,8 @@ class Stop {
     val name: String
     val description: String
 
-    val lat: Float
-    val lon: Float
+    val lat: Double
+    val lon: Double
 
     val routes: List<String>?
     val transport: VehicleType
@@ -24,8 +24,8 @@ class Stop {
         index: Int,
         name: String,
         description: String,
-        lat: Float,
-        lon: Float,
+        lat: Double,
+        lon: Double,
         routes: List<String>?,
         transport: VehicleType,
         kttu: String?,
@@ -50,8 +50,8 @@ class Stop {
         this.description = data.getString("description")
         this.index = data.getInt("index")
         this.kttu = if (data.has("kttu")) data.getString("kttu") else null
-        this.lat = data.getFloat("lat")
-        this.lon = data.getFloat("lon")
+        this.lat = data.getDouble("lat")
+        this.lon = data.getDouble("lon")
         this.name = data.getString("name")
         this.transport = VehicleType.valueOf(data.getString("transport").uppercase())
         this.trolley = if (data.has("trolley")) data.getString("trolley") else null

@@ -15,8 +15,8 @@ class Vehicle {
     val route: String?
     val route_id: String?
 
-    val lat: Float
-    val lng: Float
+    val lat: Double
+    val lng: Double
 
     val speed: Double?
     val arrow: Double?
@@ -35,8 +35,8 @@ class Vehicle {
         this.route = if (data.has("route")) data.getString("route") else null
         this.route_id = if (data.has("route_id")) data.getString("route_id") else null
 
-        this.lat = data.getFloat("lat")
-        this.lng = data.getFloat("lng")
+        this.lat = data.getDouble("lat")
+        this.lng = data.getDouble("lng")
         this.speed = if (data.has("speed") && !data.isNull("speed"))
             data.getDouble("speed") else null
         this.arrow = if (data.has("arrow")) data.getDouble("arrow") else null
