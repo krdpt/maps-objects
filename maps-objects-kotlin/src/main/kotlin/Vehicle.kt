@@ -3,15 +3,16 @@ package ru.krdpt
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.json.JSONObject
+import com.google.gson.annotations.SerializedName
 
 @Serializable
 enum class VehicleType {
-    @SerialName("trolley") TROLLEY,
-    @SerialName("bus") BUS,
-    @SerialName("ebus") EBUS,
-    @SerialName("tram") TRAM,
-    @SerialName("service") SERVICE,
-    @SerialName("commercial") COMMERCIAL
+    @SerializedName("trolley") @SerialName("trolley") TROLLEY,
+    @SerializedName("bus") @SerialName("bus") BUS,
+    @SerializedName("ebus") @SerialName("ebus") EBUS,
+    @SerializedName("tram") @SerialName("tram") TRAM,
+    @SerializedName("service") @SerialName("service") SERVICE,
+    @SerializedName("commercial") @SerialName("commercial") COMMERCIAL
 }
 
 @Serializable
@@ -19,11 +20,13 @@ class Vehicle (
     val id: String,
     val type: VehicleType,
 
+    @SerializedName("registration_number")
     @SerialName("registration_number")
     val registrationNumber: String?,
     val model: String?,
     val route: String?,
 
+    @SerializedName("route_id")
     @SerialName("route_id")
     val routeId: String?,
 
