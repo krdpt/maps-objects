@@ -41,9 +41,11 @@ class VehicleInfo (
 
     val depot: String?,
     val comment: String?,
-
     val tags: List<String>?,
-    val raw: List<String>?
+
+    @SerializedName("kttu")
+    @SerialName("kttu")
+    val isKttu: Boolean = false,
 ) {
 
     constructor(data: JSONObject) : this(
@@ -62,14 +64,14 @@ class VehicleInfo (
 
         if (data.has("depot")) data.getString("depot") else null,
         if (data.has("comment")) data.getString("comment") else null,
-
         if (data.has("tags")) data.getJSONArray("tags").toList() as List<String> else null,
-        if (data.has("raw")) data.getJSONArray("raw").toList() as List<String> else null,
+
+        if (data.has("kttu")) data.getBoolean("kttu") else false
     )
 
     constructor(json: String): this(JSONObject(json))
 
     override fun toString(): String {
-        return "VehicleInfo(num=$num, model=$model, years=$years, factoryId=$factoryId, builtIn=$builtIn, exploitationSince=$exploitationSince, registrationNumber=$registrationNumber, moreUrl=$moreUrl, imageUrl=$imageUrl, smallImageUrl=$smallImageUrl, depot=$depot, comment=$comment, tags=$tags, raw=$raw)"
+        return "VehicleInfo(num=$num, model=$model, years=$years, factoryId=$factoryId, builtIn=$builtIn, exploitationSince=$exploitationSince, registrationNumber=$registrationNumber, moreUrl=$moreUrl, imageUrl=$imageUrl, smallImageUrl=$smallImageUrl, depot=$depot, comment=$comment, tags=$tags, isKttu=$isKttu)"
     }
 }
