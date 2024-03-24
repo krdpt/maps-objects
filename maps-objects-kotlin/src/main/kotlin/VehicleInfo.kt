@@ -6,10 +6,22 @@ import kotlinx.serialization.Serializable
 import org.json.JSONObject
 
 @Serializable
+enum class VehicleClassType {
+    @SerializedName("large") @SerialName("large") LARGE,
+    @SerializedName("big") @SerialName("big") BIG,
+    @SerializedName("medium") @SerialName("medium") MEDIUM,
+    @SerializedName("small") @SerialName("small") SMALL
+}
+
+@Serializable
 class VehicleInfo (
     val num: String?,
     val model: String?,
     val years: Double?,
+
+    @SerializedName("class")
+    @SerialName("class")
+    val classType: VehicleClassType,
 
     @SerializedName("factory_id")
     @SerialName("factory_id")
@@ -52,6 +64,7 @@ class VehicleInfo (
         if (data.has("num")) data.getString("num") else null,
         if (data.has("model")) data.getString("model") else null,
         if (data.has("years")) data.getDouble("years") else null,
+        VehicleClassType.valueOf(data.getString("class").uppercase()),
 
         if (data.has("factoryId")) data.getInt("factoryId") else null,
         if (data.has("built_in")) data.getString("built_in") else null,
@@ -72,6 +85,6 @@ class VehicleInfo (
     constructor(json: String): this(JSONObject(json))
 
     override fun toString(): String {
-        return "VehicleInfo(num=$num, model=$model, years=$years, factoryId=$factoryId, builtIn=$builtIn, exploitationSince=$exploitationSince, registrationNumber=$registrationNumber, moreUrl=$moreUrl, imageUrl=$imageUrl, smallImageUrl=$smallImageUrl, depot=$depot, comment=$comment, tags=$tags, isKttu=$isKttu)"
+        return "VehicleInfo(num=$num, model=$model, years=$years, classType=$classType, factoryId=$factoryId, builtIn=$builtIn, exploitationSince=$exploitationSince, registrationNumber=$registrationNumber, moreUrl=$moreUrl, imageUrl=$imageUrl, smallImageUrl=$smallImageUrl, depot=$depot, comment=$comment, tags=$tags, isKttu=$isKttu)"
     }
 }
