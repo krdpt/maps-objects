@@ -65,6 +65,6 @@ class Vehicle (
     constructor(json: String): this(JSONObject(json))
 
     override fun toString(): String {
-        return "Vehicle(id='$id', type='$type', registration_number=$registrationNumber, model=$model, route=$route, route_id=$routeId, lat=$lat, lng=$lng, speed=$speed, arrow=$arrow, kttu=$kttu, long=$long, routeless=$routeless)"
+        return "Vehicle(id='$id', type=$type, registrationNumber=$registrationNumber, model=$model, route=$route, routeId=$routeId, lat=$lat, lng=$lng, speed=$speed, arrow=$arrow, kttu=$kttu, long=$long, routeless=$routeless)"
     }
 }
